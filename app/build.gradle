@@ -5,7 +5,7 @@ android {
     namespace 'com.voicecallpro.app'
     compileSdk 34
     defaultConfig {
-        applicationId 'com.voicecallpro.app'
+        applicationId 'com.RideX.app'
         minSdk 21
         targetSdk 34
         versionCode 2
