@@ -7,7 +7,13 @@ workflows:
     scripts:
       - name: Set SDK
         script: echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+      - name: Install Gradle
+        script: |
+          curl -L https://services.gradle.org/distributions/gradle-8.4-bin.zip -o /tmp/gradle.zip
+          unzip -q /tmp/gradle.zip -d /tmp/gradle-dist
+          export PATH="/tmp/gradle-dist/gradle-8.4/bin:$PATH"
+          echo "PATH=/tmp/gradle-dist/gradle-8.4/bin:$PATH" >> $CM_ENV
       - name: Build debug APK
-        script: ./gradlew assembleDebug
+        script: gradle assembleDebug
     artifacts:
       - app/build/outputs/**/*.apk
