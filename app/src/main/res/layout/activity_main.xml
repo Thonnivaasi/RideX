@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+  <ScrollView android:id="@+id/scrollView"
+      android:layout_width="match_parent" android:layout_height="match_parent"
+      android:layout_above="@+id/musicBar">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+      <TextView android:id="@+id/tvTitle"
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:text="ridex" android:textSize="28sp" android:textStyle="bold"
+          android:textColor="@color/accent" android:gravity="center"
+          android:paddingBottom="14dp" />
+
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:orientation="horizontal" android:gravity="center_vertical" android:paddingBottom="6dp">
+        <TextView android:id="@+id/tvWifiLabel"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="WiFi" android:textColor="@color/text_white" android:textSize="14sp" />
+        <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchWifiBt"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" />
+        <TextView android:id="@+id/tvWifiBtLabel"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="WiFi+BT Audio" android:textColor="@color/text_secondary"
+            android:textSize="14sp" android:gravity="end" />
+      </LinearLayout>
+
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:orientation="horizontal" android:gravity="center_vertical" android:paddingBottom="10dp">
+        <TextView android:id="@+id/tvBtLabel"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="BT" android:textColor="@color/text_white" android:textSize="14sp" />
+        <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/switchBtMic"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" />
+        <TextView android:id="@+id/tvBtMicLabel"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="BT+BT Mic" android:textColor="@color/text_secondary"
+            android:textSize="14sp" android:gravity="end" />
+      </LinearLayout>
+
+      <LinearLayout android:id="@+id/signalContainer"
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:orientation="horizontal" android:gravity="center" android:paddingBottom="8dp">
+        <View android:id="@+id/bar1" android:layout_width="10dp" android:layout_height="10dp"
+            android:background="@color/text_grey" android:layout_marginEnd="3dp" />
+        <View android:id="@+id/bar2" android:layout_width="10dp" android:layout_height="16dp"
+            android:background="@color/text_grey" android:layout_marginEnd="3dp" />
+        <View android:id="@+id/bar3" android:layout_width="10dp" android:layout_height="22dp"
+            android:background="@color/text_grey" android:layout_marginEnd="10dp" />
+        <TextView android:id="@+id/tvBtSignal"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="BT" android:textColor="@color/text_grey"
+            android:textStyle="bold" android:textSize="16sp" android:visibility="gone" />
+      </LinearLayout>
+
+      <TextView android:id="@+id/tvStatus"
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:text="Idle" android:textColor="@color/text_white"
+          android:gravity="center" android:paddingBottom="10dp" />
+
+      <LinearLayout android:id="@+id/layoutWifiCode"
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:orientation="vertical" android:paddingBottom="8dp">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+          <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRoomCode"
+              android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:hint="6-digit room code" android:inputType="number"
+              android:maxLength="6" android:textColor="@color/text_white" />
+        </com.google.android.material.textfield.TextInputLayout>
+      </LinearLayout>
+
+      <LinearLayout android:id="@+id/layoutBtDevices"
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:orientation="vertical" android:paddingBottom="8dp" android:visibility="gone">
+        <Spinner android:id="@+id/spinnerDevices"
+            android:layout_width="match_parent" android:layout_height="wrap_content" />
+      </LinearLayout>
+
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:orientation="horizontal" android:paddingBottom="10dp">
+        <Button android:id="@+id/btnHost"
+            android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1"
+            android:text="HOST" android:background="@drawable/btn_green"
+            android:textColor="@color/text_white" android:layout_marginEnd="8dp" />
+        <Button android:id="@+id/btnCall"
+            android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1"
+            android:text="CALL" android:background="@drawable/btn_curved"
+            android:textColor="@color/text_white" />
+      </LinearLayout>
+
+      <TextView android:id="@+id/tvTimer"
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:text="00:00" android:textColor="@color/text_white"
+          android:gravity="center" android:textSize="22sp"
+          android:visibility="gone" android:paddingBottom="4dp" />
+
+      <TextView android:id="@+id/tvLastCall"
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:textColor="@color/text_secondary" android:gravity="center"
+          android:textSize="13sp" android:visibility="gone" android:paddingBottom="8dp" />
+
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:orientation="horizontal" android:paddingBottom="8dp">
+        <Button android:id="@+id/btnMute"
+            android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1"
+            android:text="Mute" android:background="@drawable/btn_amber"
+            android:textColor="@color/text_white" android:layout_marginEnd="8dp" />
+        <Button android:id="@+id/btnSpeaker"
+            android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1"
+            android:text="Speaker" android:background="@drawable/btn_teal"
+            android:textColor="@color/text_white" />
+      </LinearLayout>
+
+      <SeekBar android:id="@+id/seekVolume"
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:max="15" android:progress="8" android:paddingBottom="10dp" />
+
+      <Button android:id="@+id/btnEndCall"
+          android:layout_width="match_parent" android:layout_height="48dp"
+          android:text="End Call" android:background="@drawable/btn_red"
+          android:textColor="@color/text_white" android:visibility="gone"
+          android:layout_marginBottom="8dp" />
+
+      <TextView android:id="@+id/tvRoomCodeDisplay"
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:textColor="@color/accent" android:gravity="center"
+          android:textSize="18sp" android:textStyle="bold"
+          android:visibility="gone" android:paddingBottom="8dp" />
+
+      <LinearLayout android:id="@+id/layoutCallHistory"
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:orientation="vertical" android:background="@drawable/card_bg"
+          android:padding="10dp" android:layout_marginTop="8dp" android:layout_marginBottom="8dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Recent Calls" android:textColor="@color/text_secondary"
+            android:textSize="12sp" android:paddingBottom="4dp" />
+        <TextView android:id="@+id/tvHistory1"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="@color/text_white" android:textSize="13sp" />
+        <TextView android:id="@+id/tvHistory2"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textColor="@color/text_white" android:textSize="13sp" />
+      </LinearLayout>
+
+    </LinearLayout>
+  </ScrollView>
+
+  <LinearLayout android:id="@+id/musicBar"
+      android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true" android:orientation="vertical"
+      android:background="@drawable/music_panel_bg">
+    <LinearLayout android:id="@+id/musicBarCollapsed"
+        android:layout_width="match_parent" android:layout_height="56dp"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:paddingStart="12dp" android:paddingEnd="12dp">
+      <TextView android:id="@+id/tvSongName"
+          android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+          android:text="No song playing" android:textColor="@color/text_white"
+          android:textSize="13sp" android:singleLine="true" />
+      <Button android:id="@+id/btnPrev" android:layout_width="40dp" android:layout_height="40dp"
+          android:text="|&lt;" android:textSize="11sp" android:background="@null" android:textColor="@color/text_white" />
+      <Button android:id="@+id/btnPlayPause" android:layout_width="40dp" android:layout_height="40dp"
+          android:text="&gt;" android:textSize="14sp" android:background="@null" android:textColor="@color/text_white" />
+      <Button android:id="@+id/btnNext" android:layout_width="40dp" android:layout_height="40dp"
+          android:text="&gt;|" android:textSize="11sp" android:background="@null" android:textColor="@color/text_white" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/musicPanelExpanded"
+        android:layout_width="match_parent" android:layout_height="280dp"
+        android:orientation="vertical" android:padding="12dp" android:visibility="gone">
+      <Spinner android:id="@+id/spinnerPlaylists"
+          android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingBottom="8dp" />
+      <ListView android:id="@+id/listSongs"
+          android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
+      <Button android:id="@+id/btnAddPlaylist"
+          android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:text="+ Add Playlist" android:background="@drawable/btn_curved"
+          android:textColor="@color/text_white" android:layout_marginTop="6dp" />
+    </LinearLayout>
+  </LinearLayout>
+
+</RelativeLayout>

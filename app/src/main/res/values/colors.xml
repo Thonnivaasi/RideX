@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1A1A2E</color>
+    <color name="colorPrimaryDark">#16213E</color>
+    <color name="colorAccent">#E94560</color>
+    <color name="accent">#E94560</color>
+    <color name="amber">#FFC107</color>
+    <color name="teal">#009688</color>
+    <color name="red_end">#F44336</color>
+    <color name="green_signal">#4CAF50</color>
+    <color name="orange_signal">#FF9800</color>
+    <color name="red_signal">#F44336</color>
+    <color name="bg_dark">#1A1A2E</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_secondary">#AAAAAA</color>
+    <color name="text_grey">#AAAAAA</color>
+    <color name="card_bg">#16213E</color>
+    <color name="music_bar_bg">#0F3460</color>
+</resources>
